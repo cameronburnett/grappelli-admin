@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PRNP V.1.1.0.0</title>
+	<style type = "text/css">
+  	ul.nav {
+	    position: absolute;
+	    top: 2em;
+	    left: 1em;
+	    width: 9em 
+	}
+	ul {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
+	li {
+		float: left;
+	}
+	li a {
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	li a:hover{
+		background-color: #1E90FF;
+	}
+	main {
+		border: 1px solid powderblue;
+	}
+
+	</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<meta charset="utf-8">
+	<meta name="description" content="project site">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+	<div class="container-fullwidth">
+
+
+		{% block nav %}
+		<ul id='nav'>
+			<li>{% block nav-home %}<a href="{% url 'projects' %}">Projects</a>{% endblock %}</li>
+			<li>{% block nav-editproject %}<a href="{% url 'admin-redirect' %}">Edit</a>{% endblock %}</li>
+			<li>{% block nav-newproject %}<a href="{% url 'new-project' %}">New</a>{% endblock %}</li>
+		</ul>
+		{% endblock %}
+
+		{% block header %} 
+		<h2>Projects</h2>
+		{% endblock %}
+
+		<main>
+			{% block content %}{% endblock %}
+		</main>
+
+		<footer>
+			{% block footer %}
+			<p><a href="{% url 'admin-redirect' %}">Log In</a> to edit/add projects or <a href="{% url 'projects' %}">return to the top</a></p>
+			{% endblock %}
+		</footer>
+	</div>
+</body>
+</html>

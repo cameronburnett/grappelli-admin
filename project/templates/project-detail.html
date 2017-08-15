@@ -1,0 +1,124 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <Strong>Name: </strong>{{ project.project_name|title }}
+        </div>
+        <div class="col">
+            <Strong>Contact: </strong>{{ project.project_contact_primary|title }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <strong>Version: </strong>{{ project.project_version }}
+        </div>
+        <div class="col">
+            <Strong>Class: </strong>{{ project.project_class }}
+        </div>
+    </div>
+
+
+  <hr>
+  <p style="font-size:20px"><span style="font-weight:bold">Compute: </span></p>
+
+
+	<table class="table table-hover table-bordered">
+
+
+      {% for site in project.site_set.all %}
+          <tr>
+            <th colspan="14">Site: {{ site }}</th>
+          </tr>
+
+          {% for function in site.function_set.all %}
+              <tr>
+                <th colspan="14">Function: {{ function }}</th>
+              </tr>
+              <tr>
+                <th>Slots or Hosts</th>
+                <th>Compute Size</th>
+                <th>January-17</th>
+                <th>February-17</th>
+                <th>March-17</th>
+                <th>April-17</th>
+                <th>May-17</th>
+                <th>June-17</th>
+                <th>July-17</th>
+                <th>August-17</th>
+                <th>September-17</th>
+                <th>October-17</th>
+                <th>November-17</th>
+                <th>December-17</th>
+              </tr>
+              {% for compute in function.computeprofile_set.all %}
+              <tr>
+                <td>{{ compute.slots_or_hosts }}</td>
+                <td>{{ compute.compute_size }}</td>
+                <td>{{ compute.compute_jan }}</td>
+                <td>{{ compute.compute_feb }}</td>
+                <td>{{ compute.compute_mar }}</td>
+                <td>{{ compute.compute_apr }}</td>
+                <td>{{ compute.compute_may }}</td>
+                <td>{{ compute.compute_jun }}</td>
+                <td>{{ compute.compute_jul }}</td>
+                <td>{{ compute.compute_aug }}</td>
+                <td>{{ compute.compute_sep }}</td>
+                <td>{{ compute.compute_oct }}</td>
+                <td>{{ compute.compute_nov }}</td>
+                <td>{{ compute.compute_dec }}</td>
+              </tr>
+              {% endfor %}
+          {% endfor %}
+       {% endfor %}
+	</table>
+
+	<hr> 
+	<p style="font-size:20px"><span style="font-weight:bold">Storage: </span></p>
+
+	<table class="table table-hover table-bordered">
+      {% for site in project.site_set.all %}
+          <tr>
+            <th colspan="14">Site: {{ site }}</th>
+          </tr>
+
+          {% for function in site.function_set.all %}
+              <tr>
+                <th colspan="14">Function: {{ function }}</th>
+              </tr>
+            {% for storage in function.storageprofile_set.all %}
+              <tr>
+                <th>Storage Tier</th>
+                <th>Storage Size</th>
+                <th>January-17</th>
+                <th>February-17</th>
+                <th>March-17</th>
+                <th>April-17</th>
+                <th>May-17</th>
+                <th>June-17</th>
+                <th>July-17</th>
+                <th>August-17</th>
+                <th>September-17</th>
+                <th>October-17</th>
+                <th>November-17</th>
+                <th>December-17</th>
+              </tr>
+              <tr>
+                <td>{{ storage.storage_tier }}</td>
+                <td>{{ storage.storage_size }}</td>
+                <td>{{ storage.storage_jan }}</td>
+                <td>{{ storage.storage_feb }}</td>
+                <td>{{ storage.storage_mar }}</td>
+                <td>{{ storage.storage_apr }}</td>
+                <td>{{ storage.storage_may }}</td>
+                <td>{{ storage.storage_jun }}</td>
+                <td>{{ storage.storage_jul }}</td>
+                <td>{{ storage.storage_aug }}</td>
+                <td>{{ storage.storage_sep }}</td>
+                <td>{{ storage.storage_oct }}</td>
+                <td>{{ storage.storage_nov }}</td>
+                <td>{{ storage.storage_dec }}</td>
+              </tr>
+              {% endfor %}
+          {% endfor %}
+      {% endfor %}
+	</table>
+</div>
