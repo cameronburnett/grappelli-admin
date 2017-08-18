@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '())u2$6=1_6!t^)6*qx01w^u_9ip+7mz1%o&@e9b_a5@kdr&r_'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 CSRF_COOKIE_SECURE = False
 
@@ -95,12 +95,23 @@ DATABASES = {
 
 
 '''
+MySQL databases: 
+
+PRODUCTION Environment
 'ENGINE': 'django.db.backends.mysql',
-        'NAME': '',
-        'USER': '', 
+        'NAME': 'web_portal_db',
+        'USER': 'ec_forecast', 
         'PASSWORD': '', 
-        'HOST': '', 
-        'PORT': '',
+        'HOST': 'dbcrpmysqlprd73', 
+        'PORT': '3306',
+
+DEVELOPMENT Environment
+'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'web_portal_db',
+        'USER': 'ec_forecast', 
+        'PASSWORD': '', 
+        'HOST': 'dbcrpmysqldev40', 
+        'PORT': '3306',
 '''
 
 # Password validation
